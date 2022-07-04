@@ -292,10 +292,13 @@ const getMovies = async (type, box) => {
     let auxMovie = "";
 
     if (response.status === 200) {
-      for (let i = 0; i < 15; i++) {
+      let auxNum = 15;
+      for (let i = 0; i < auxNum; i++) {
         if (aux[i].backdrop_path !== null) {
         auxMovie += `<div class="movie" id=${aux[i].id} onclick="showMovie(${aux[i].id})"><img src="https://image.tmdb.org/t/p/w500${aux[i].backdrop_path}" class="poster" alt=""></div>`;
         box.innerHTML = auxMovie;
+        } else if (aux[i].backdrop_path == null) {
+          auxNum++
         }
       }
     }
