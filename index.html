@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hind:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Netflix</title>
+  </head>
+  <body>
+<!--NAV BAR-->
+    <div id="navbaritems">
+      <div id="left">
+        <img
+          src="https://1000marken.net/wp-content/uploads/2021/01/Netflix-logo.png"
+          alt="" id="changeLogo"
+        />
+        <div class="navWord"><p>Home</p></div>
+        <div class="navWord"><p>TV Shows</p></div>
+        <div class="navWord"><p>Movies</p></div>
+        <div class="navWord"><p>Recently Added</p></div>
+        <div class="navWord"><p>My list</p></div>
+      </div>
+      <div id="right">
+
+        <div class="navWordSearch">
+          <input id="searchInput" type="text" autocomplete="off">
+          <i class="bi bi-search" onclick="search()"></i>
+        </div>
+        <div class="navWord"><i class="bi bi-bell-fill"></i></div>
+        <img
+          src="https://i.pinimg.com/originals/b6/77/cd/b677cd1cde292f261166533d6fe75872.png"
+          alt=""
+        />
+
+      </div>
+    </div>
+<!--BILLBOARD  -->
+    <header id="billboard">
+      <div id="billboardContainer"></div>
+      <div id="billboardInfo">
+        <h1 id="billboardTitle"></h1>
+        <p id="billboardDesc"></p>
+        <div class="btnCollection">
+          <button class="playBtn">
+            <i class="bi bi-play-fill fa-2x"></i>
+            <p>Play</p>
+          </button>
+          <button id="infoBtn">
+            <i class="bi bi-info-circle fa-2x"></i>
+            <p>More info</p>
+          </button>
+        </div>
+      </div>
+      <div class="gradient"></div>
+    </header>
+    <main>
+<!-- Peliculas con JS -->
+      <div class="movieSlides">
+        <!-- TRENDING -->
+        <div class="slidesInfo"><h2>Trending</h2></div>
+        <div class="containerSlidesPrincipal">
+          <button role="button" class="leftArrow" onclick="moveArrowLeft(C0)">
+            <i class="bi bi-chevron-compact-left"></i>
+          </button>
+          <div class="carouselContainer" id="C0">
+            <div class="carousel" id="popular"></div>
+          </div>
+          <button role="button" class="rightArrow" onclick="moveArrowRight(C0)">
+            <i class="bi bi-chevron-compact-right"></i>
+          </button>
+        </div>
+        <!-- ROMANCE -->
+        <div class="slidesInfo"><h2>Romance</h2></div>
+        <div class="containerSlidesPrincipal">
+          <button role="button" class="leftArrow" onclick="moveArrowLeft(C1)">
+            <i class="bi bi-chevron-compact-left"></i>
+          </button>
+          <div class="carouselContainer" id="C1">
+            <div class="carousel" id="romance"></div>
+          </div>
+          <button role="button" class="rightArrow" onclick="moveArrowRight(C1)">
+            <i class="bi bi-chevron-compact-right"></i>
+          </button>
+        </div>
+        <!-- CRIME -->
+        <div class="slidesInfo"><h2>Crime</h2></div>
+        <div class="containerSlidesPrincipal">
+          <button role="button" class="leftArrow" onclick="moveArrowLeft(C2)">
+            <i class="bi bi-chevron-compact-left"></i>
+          </button>
+          <div class="carouselContainer" id="C2">
+            <div class="carousel" id="crime"></div>
+          </div>
+          <button role="button" class="rightArrow" onclick="moveArrowRight(C2)">
+            <i class="bi bi-chevron-compact-right"></i>
+          </button>
+        </div>
+        <!-- ANIMATION -->
+        <div class="slidesInfo"><h2>Animation</h2></div>
+        <div class="containerSlidesPrincipal">
+          <button role="button" class="leftArrow" onclick="moveArrowLeft(C3)">
+            <i class="bi bi-chevron-compact-left"></i>
+          </button>
+          <div class="carouselContainer" id="C3">
+            <div class="carousel" id="animation"></div>
+          </div>
+          <button role="button" class="rightArrow" onclick="moveArrowRight(C3)">
+            <i class="bi bi-chevron-compact-right"></i>
+          </button>
+        </div>
+        <!-- HISTORY -->
+        <div class="slidesInfo"><h2>Historical</h2></div>
+        <div class="containerSlidesPrincipal">
+          <button role="button" class="leftArrow" onclick="moveArrowLeft(C4)">
+            <i class="bi bi-chevron-compact-left"></i>
+          </button>
+          <div class="carouselContainer" id="C4">
+            <div class="carousel" id="history"></div>
+          </div>
+          <button role="button" class="rightArrow" onclick="moveArrowRight(C4)">
+            <i class="bi bi-chevron-compact-right"></i>
+          </button>
+        </div>
+        <!-- MUSIC -->
+        <div class="slidesInfo"><h2>Musical</h2></div>
+        <div class="containerSlidesPrincipal">
+          <button role="button" class="leftArrow" onclick="moveArrowLeft(C5)">
+            <i class="bi bi-chevron-compact-left"></i>
+          </button>
+          <div class="carouselContainer" id="C5">
+            <div class="carousel" id="music"></div>
+          </div>
+          <button role="button" class="rightArrow" onclick="moveArrowRight(C5)">
+            <i class="bi bi-chevron-compact-right"></i>
+          </button>
+        </div>
+      </div>
+    </main>
+<!-- MOVIE PAGE -->
+    <div id="moviePage">
+      <div id="moviePageBackgroundColor"></div>
+      <div id="moviePageGrid">
+        <div class="gradientUp">
+          <div class="close" onclick="closeWindow(moviePage)">
+            <img src="https://1000marken.net/wp-content/uploads/2021/01/Netflix-logo.png" alt="" class="closeImg" />
+          </div>
+        </div>
+        <div id="moviePageInt">
+          <div id="moviePageIntInfo">
+            <h1 id="moviePageTitle"></h1>
+            <p id="moviePageDesc"></p>
+            <div id="moviePageActor"></div>
+          </div>
+        </div>
+        <div class="gradientDown"></div>
+      </div>
+    </div>
+<!-- ACTOR PAGE -->
+  <div id="actorPage">
+    <div id="actorPageGrid">
+    <div class="gradientUp">
+      <div class="close" onclick="closeWindow(actorPage)">
+        <img
+          src="https://1000marken.net/wp-content/uploads/2021/01/Netflix-logo.png"
+          alt=""
+          class="closeImg"
+        />
+      </div>
+    </div>
+      <div id="actorPageInt">
+        <!-- <div id="apmContainer"> -->
+          <div id="actorPageMovies"></div>
+        <!-- </div> -->
+      </div>
+    <div class="gradientDown"></div>
+    </div>
+  </div>
+<!-- SEARCH PAGE -->
+  <div id="searchPage">
+    <div id="searchPageGrid">
+      <div class="gradientUp"></div>
+      <div id="searchPageBackground">
+        <div id="searchPageInt">
+          <div class="close" onclick="closeWindow(searchPage)">
+            <img src="https://1000marken.net/wp-content/uploads/2021/01/Netflix-logo.png" alt="" class="closeImg" />
+            <div id="searchPageText"></div>
+          </div>
+        </div>
+      </div>
+      <div class="gradientDown"></div>
+    </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
